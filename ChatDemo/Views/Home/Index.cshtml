@@ -53,7 +53,7 @@
 
                 $('#sendmessage').click(function () {
                     chat.server.send($('#displayname').val(), $('#message').val());         // Call the Send method on the hub.
-                    $('#message').val('').focus();                 // Clear text box and reset focus for next comment.
+                    $('#message').val('');                 // Clear text box and reset focus for next comment.
                 });
                 //--- end -----//
 
@@ -64,7 +64,7 @@
                 //    var encodedMsg = $('<div />').text($('#message').val()).html();
                 //    $('#discussion').append('<li><strong>' + encodedName
                 //        + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</li>');
-                //    $('#message').val('').focus();                 // Clear text box and reset focus for next comment.
+                //    $('#message').val('');                 // Clear text box and reset focus for next comment.
                 //});
             });
         });
