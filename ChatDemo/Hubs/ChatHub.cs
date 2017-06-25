@@ -30,11 +30,10 @@ namespace ChatDemo.Hubs
             Clients.Others.getMessage(name, message); // Call other users to get message method
         }
 
-        public override Task OnDisconnected(bool stopCalled)
-        {
-
-            Clients.All.getMessage("System", "a user go offline at " + DateTime.Now);
-            return base.OnDisconnected(stopCalled);
-        }
+        //public override Task OnDisconnected(bool stopCalled)
+        //{
+        //    Clients.All.getMessage("System", "a user go offline at " + DateTime.Now);
+        //    return base.OnDisconnected(stopCalled);
+        //}
     }
 }
