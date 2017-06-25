@@ -51,3 +51,14 @@ D:\work\Projects\Visual_Studio\ChatDemo\ChatDemo\bin\Newtonsoft.Json.xml
 D:\work\Projects\Visual_Studio\ChatDemo\ChatDemo\obj\Debug\ChatDemo.csprojResolveAssemblyReference.cache
 D:\work\Projects\Visual_Studio\ChatDemo\ChatDemo\obj\Debug\ChatDemo.dll
 D:\work\Projects\Visual_Studio\ChatDemo\ChatDemo\obj\Debug\ChatDemo.pdb
+D:\work\Projects\Visual_Studio\ChatDemo\ChatDemo\bin\Microsoft.AspNet.SignalR.Core.dll
+D:\work\Projects\Visual_Studio\ChatDemo\ChatDemo\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\work\Projects\Visual_Studio\ChatDemo\ChatDemo\bin\Microsoft.Owin.dll
+D:\work\Projects\Visual_Studio\ChatDemo\ChatDemo\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\work\Projects\Visual_Studio\ChatDemo\ChatDemo\bin\Microsoft.Owin.Security.dll
+D:\work\Projects\Visual_Studio\ChatDemo\ChatDemo\bin\Owin.dll
+D:\work\Projects\Visual_Studio\ChatDemo\ChatDemo\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\work\Projects\Visual_Studio\ChatDemo\ChatDemo\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\work\Projects\Visual_Studio\ChatDemo\ChatDemo\bin\Microsoft.Owin.xml
+D:\work\Projects\Visual_Studio\ChatDemo\ChatDemo\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\work\Projects\Visual_Studio\ChatDemo\ChatDemo\bin\Microsoft.Owin.Security.xml
