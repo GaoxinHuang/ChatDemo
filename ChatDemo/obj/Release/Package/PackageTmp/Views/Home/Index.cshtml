@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="chat-content">
+    <div id="notification-icon">
+        <div class="glyphicon glyphicon-bell"><div id="txt"></div></div>
+    </div>
+    <input type="text" id="message"/>
+    <input type="button" id="sendmessage" value="Send"/>
+    <input type="hidden" id="displayname"/>
+    <ul id="discussion"></ul>
+</div>
+@section scripts{
+    <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script type="text/javascript">
+        $(function () {
+            var chat = $.connection.chatHub;  // Declare a proxy to reference the hub.
+
+            // Create a function that the hub can call to get messages.
+            chat.client.getMessage = function (name, message) {
+                // Display name and message.
+                var encodedName = $('<div />').text(name).html();
+                var encodedMsg = $('<div />').text(message).html();
+
+                // Add the message to the page.
+                $('#discussion').append('<li><strong>' + encodedName
+                    + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</li>');
+
+                // Set up notification Num 
+                var notificationNum = parseInt($('#txt').html());
+                if (isNaN(notificationNum)) {
+                    notificationNum = 0;
+                }
+                notificationNum++;
+                $('#txt').html(notificationNum);
+            };
+
+            // set up clear notifactication num when click notification icon
+            $('#notification-icon').click(function () {
+                $('#txt').html('');
+            });
+        
+            // Start the connection.
+            $.connection.hub.start().done(function () {
+                //var connectionId = $.connection.hub.id;// get connectionId
+
+                $('#displayname').val(prompt('Enter your name:', ''));  // Get the user name and store it to prepend to messages.
+                $('#message').focus();  // Set initial focus to message input box.
+
+                chat.server.showUserGoOnline($('#displayname').val(), "go online");     //show users go online
+
+                $('#sendmessage').click(function () {
+                    chat.server.send($('#displayname').val(), $('#message').val());         // Call the Send method on the hub.
+                    $('#message').val('').focus();                 // Clear text box and reset focus for next comment.
+                });
+                //--- end -----//
+
+                //only push other user message to notification number
+                //$('#sendmessage').click(function () {
+                //    chat.server.showUserGoOnline($('#displayname').val(), $('#message').val());
+                //    var encodedName = $('<div />').text($('#displayname').val()).html();
+                //    var encodedMsg = $('<div />').text($('#message').val()).html();
+                //    $('#discussion').append('<li><strong>' + encodedName
+                //        + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</li>');
+                //    $('#message').val('').focus();                 // Clear text box and reset focus for next comment.
+                //});
+            });
+        });
+
+    </script>
+}
