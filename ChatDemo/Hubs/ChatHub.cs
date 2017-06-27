@@ -9,13 +9,6 @@ namespace ChatDemo.Hubs
 {
     public class ChatHub : Hub
     {
-        // call this method when a user connects to hub
-        //public override Task OnConnected()
-        //{
-        //var connectionId = Context.ConnectionId; //get connection id
-        //    return base.OnConnected();
-        //}
-
         public void Send(string name, string message)
         {
             // Call the getMessage method to update users' messsages.
@@ -30,6 +23,14 @@ namespace ChatDemo.Hubs
             Clients.Others.getMessage(name, message); // Call other users to get message method
         }
 
+        // call this method when a user connects to hub
+        //public override Task OnConnected()
+        //{
+        //var connectionId = Context.ConnectionId; //get connection id
+        //    return base.OnConnected();
+        //}
+
+        //call this method when a user disconnect
         //public override Task OnDisconnected(bool stopCalled)
         //{
         //    Clients.All.getMessage("System", "a user go offline at " + DateTime.Now);
