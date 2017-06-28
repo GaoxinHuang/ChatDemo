@@ -16,7 +16,7 @@
     <script src="~/signalr/hubs"></script>
     <script type="text/javascript">
         $(function () {
-            var chat = $.connection.chatHub;  // Declare a proxy to reference the hub.
+            var chat = $.connection.chatHub; //Declare a proxy to reference the hub.
             // Create a function that the hub can call to get messages.
             chat.client.getMessage = function (name, message) {
                 // Display name and message.
@@ -41,14 +41,16 @@
         
             // Start the connection.
             $.connection.hub.start().done(function () {
+                $('#sendmessage').click(function () {
+                    // Call the Send method on the hub.
+                    chat.server.send($('#displayname').val(), $('#message').val());        
+                    $('#message').val(''); // Clear text box and reset focus for next comment.
+                });
+
                 //var connectionId = $.connection.hub.id;// get connectionId
                 $('#displayname').val(prompt('Enter your name:', ''));  // Get the user name and store it to prepend to messages.
                 $('#message').focus();  // Set initial focus to message input box.
                 chat.server.showUserGoOnline($('#displayname').val(), "go online");     //show users go online
-                $('#sendmessage').click(function () {
-                    chat.server.send($('#displayname').val(), $('#message').val());         // Call the Send method on the hub.
-                    $('#message').val('');                 // Clear text box and reset focus for next comment.
-                });
                 //--- end -----//
                 //only push other user message to notification number
                 //$('#sendmessage').click(function () {
